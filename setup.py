@@ -1,22 +1,16 @@
-#!/usr/bin/env python
-
 from distutils.core import setup
 
 setup(name='MonthDelta',
-      version='0.9.1',
+      version='1.0alpha',
       description='date computations with months',
+      long_description=open('readme.txt').read(),
       author='Jess Austin',
       author_email='jess.austin@gmail.com',
-      url='http://packages.python.org/MonthDelta',
+      url='http://pypi.python.org/pypi/MonthDelta',
+      license='MIT',
       py_modules=['monthdelta'],
-      classifiers=[
-          'Development Status :: 4 - Beta',
-          'License :: OSI Approved :: Python Software Foundation License',
-          'Programming Language :: Python :: 2.3',
-          'Programming Language :: Python :: 2.4',
-          'Programming Language :: Python :: 2.5',
-          'Programming Language :: Python :: 2.6',
-          'Programming Language :: Python :: 2.7',
-          'Programming Language :: Python :: 3',
-          'Programming Language :: Python :: 3.0',
-          'Programming Language :: Python :: 3.1'])
+      classifiers=['Development Status :: 5 - Production/Stable',
+                   'License :: OSI Approved :: MIT License',
+                   'Operating System :: OS Independent',
+                   'Programming Language :: Python :: 2',
+                   'Programming Language :: Python :: 3'])
