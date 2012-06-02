@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 
 setup(name='MonthDelta',
       version='1.0alpha',
@@ -9,6 +9,8 @@ setup(name='MonthDelta',
       url='http://pypi.python.org/pypi/MonthDelta',
       license='MIT',
       py_modules=['monthdelta'],
+      test_suite='nose.collector',
+      tests_require=['Nose'],
       platforms=['any'],
       classifiers=['Development Status :: 5 - Production/Stable',
                    'License :: OSI Approved :: MIT License',

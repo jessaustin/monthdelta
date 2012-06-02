@@ -123,19 +123,19 @@ class TestMonthDelta(unittest.TestCase):
             self.assertEqual(MonthDelta(x) // MonthDelta(y), x // y)
     def test_comp(self):
         for x, y in combinations(range(26),2):
-            self.assert_(MonthDelta(x) < MonthDelta(y))
-            self.assert_(MonthDelta(x) <= MonthDelta(y))
-            self.assert_(MonthDelta(x) != MonthDelta(y))
-            self.assert_(MonthDelta(y) > MonthDelta(x))
-            self.assert_(MonthDelta(y) >= MonthDelta(x))
+            self.assertTrue(MonthDelta(x) < MonthDelta(y))
+            self.assertTrue(MonthDelta(x) <= MonthDelta(y))
+            self.assertTrue(MonthDelta(x) != MonthDelta(y))
+            self.assertTrue(MonthDelta(y) > MonthDelta(x))
+            self.assertTrue(MonthDelta(y) >= MonthDelta(x))
         for x in range(26):
-            self.assert_(MonthDelta(x) <= MonthDelta(x))
-            self.assert_(MonthDelta(x) == MonthDelta(x))
-            self.assert_(MonthDelta(x) >= MonthDelta(x))
+            self.assertTrue(MonthDelta(x) <= MonthDelta(x))
+            self.assertTrue(MonthDelta(x) == MonthDelta(x))
+            self.assertTrue(MonthDelta(x) >= MonthDelta(x))
     def test_bool(self):
-        self.assert_(MonthDelta())
-        self.assert_(MonthDelta(-1))
-        self.assert_(not MonthDelta(0))
+        self.assertTrue(MonthDelta())
+        self.assertTrue(MonthDelta(-1))
+        self.assertTrue(not MonthDelta(0))
     def test_class(self):
         self.assertEqual(MonthDelta.min, MonthDelta(-99999999))
         self.assertEqual(MonthDelta.max, MonthDelta(99999999))
@@ -148,15 +148,16 @@ class TestMonthDelta(unittest.TestCase):
                 return round(self.months / 12)
 
         m1 = M()
-        self.assert_(type(m1) is M or type(m1) is types.InstanceType)
+        self.assertTrue(type(m1) is M or type(m1) is types.InstanceType)
         self.assertEqual(m1.as_years(), 0)
         m2 = M(-24)
-        self.assert_(type(m2) is M or type(m2) is types.InstanceType)
+        self.assertTrue(type(m2) is M or type(m2) is types.InstanceType)
         self.assertEqual(m2.as_years(), -2)
         m3 = m1 + m2
-        self.assert_(type(m3) is MonthDelta or type(m3) is types.InstanceType)
+        self.assertTrue(type(m3) is MonthDelta or
+                        type(m3) is types.InstanceType)
         m4 = M.from_md(m3)
-        self.assert_(type(m4) is M or type(m4) is types.InstanceType)
+        self.assertTrue(type(m4) is M or type(m4) is types.InstanceType)
         self.assertEqual(m3.months, m4.months)
         self.assertEqual(str(m3), str(m4))
         self.assertEqual(m4.as_years(), -2)
@@ -259,10 +260,10 @@ class TestMonthMod(unittest.TestCase):
     def test_calc(self):
         for start, end, md, td in self.expectations:
             self.assertEqual(monthmod(start, end), (md, td))
-            self.assert_((start > end and md < self.md_zero) or
-                         (start <= end and md >= self.md_zero))
-            self.assert_(td >= self.td_zero)
-            self.assert_(td < end.replace(end.year+end.month//12,
+            self.assertTrue((start > end and md < self.md_zero) or
+                            (start <= end and md >= self.md_zero))
+            self.assertTrue(td >= self.td_zero)
+            self.assertTrue(td < end.replace(end.year+end.month//12,
                                           end.month%12+1, 1) -
                               end.replace(day=1))
     def test_invariant(self):
