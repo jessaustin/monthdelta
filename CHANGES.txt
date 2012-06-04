@@ -1,1 +1,1 @@
-v1.0, June 2012 -- no changes in function; just cleaned up PyPI stuff
+v1.0, June 2012 -- cleaned up PyPI stuff; pep8 camelcase for monthdelta class
