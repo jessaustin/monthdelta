@@ -1,7 +1,6 @@
-"""Test MonthDelta() class and monthmod() function.
-
-See http://www.zope.org/Members/fdrake/DateTimeWiki/TestCases
-"""
+# Test MonthDelta() class and monthmod() function.
+#
+# See http://www.zope.org/Members/fdrake/DateTimeWiki/TestCases
 
 import pickle
 import unittest
