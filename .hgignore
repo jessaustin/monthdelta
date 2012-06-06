@@ -2,4 +2,5 @@
 ^MANIFEST$
 \.egg-info$
 \.html$
-^docs\/
+^doc\/build\/
+^doc\/\.doctrees\/

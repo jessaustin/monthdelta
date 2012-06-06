@@ -5,24 +5,23 @@
    :synopsis: date calculations with months
 .. moduleauthor:: Jess Austin <jess.austin@gmail.com>
 
-The :class:`monthdelta` class and :func:`monthmod` function provide
+The :class:`MonthDelta` class and :func:`monthmod` function provide
 month-related date functionality.
 
-:class:`monthdelta` object
+:class:`MonthDelta` object
 --------------------------
 
-.. class:: monthdelta([months=1])
+.. class:: MonthDelta([months=1])
 
    The class constructor takes one optional integer argument, *months*, with a
    default value of 1 (one).
 
-   :param months: between -99999999 and 99999999
-   :type months: :class:`integer <int>`
+   :param months: :func:`integer <int>`
 
-A :class:`monthdelta` object represents a quantity of months offset from a
-:class:`datetime.date` or :class:`datetime.datetime`.  :class:`monthdelta`
+A :class:`MonthDelta` object represents a quantity of months offset from a
+:class:`datetime.date` or :class:`datetime.datetime`.  :class:`MonthDelta`
 allows date calculations without regard to the different lengths of different
-months. A :class:`monthdelta` object added to a :class:`~datetime.date` object
+months. A :class:`MonthDelta` object added to a :class:`~datetime.date` object
 produces another :class:`~datetime.date` that has the same
 :attr:`~datetime.date.day`, with :attr:`~datetime.date.year` and
 :attr:`~datetime.date.month` offset by :attr:`monthdelta.months`.  If the
@@ -34,44 +33,31 @@ resulting :attr:`~datetime.date.day` would be too large for the resulting
     >>> date(2008, 1, 30) + monthdelta(2)
     datetime.date(2008, 3, 30)
 
-Adding a :class:`monthdelta` object to a :class:`~datetime.date` or
+Adding a :class:`MonthDelta` object to a :class:`~datetime.date` or
 :class:`~datetime.datetime` object differs from adding a
 :class:`~datetime.timedelta` object in that a :class:`~datetime.timedelta`
 object represents a fixed number of :attr:`~datetime.timedelta.days`, while the
-number of days that a :class:`monthdelta` object represents depends on the
+number of days that a :class:`MonthDelta` object represents depends on the
 actual months that it spans when added to the :class:`~datetime.date` or
 :class:`~datetime.datetime` object.
 
-:class:`monthdelta` objects may be added, subtracted, multiplied, and
+:class:`MonthDelta` objects may be added, subtracted, multiplied, and
 floor-divided similarly to :class:`~datetime.timedelta` objects.  They may not
 be added to :class:`~datetime.timedelta` objects directly, as both classes are
 intended to be used directly with :class:`~datetime.date` and
 :class:`~datetime.datetime` objects.
 
-
-Class attributes:
-
-
-.. attribute:: monthdelta.min
-
-   The most negative :class:`monthdelta` object, ``monthdelta(-99999999)``.
-
-.. attribute:: monthdelta.max
-
-   The most positive :class:`monthdelta` object, ``monthdelta(99999999)``.
-
-
 Instance attribute:
 
 .. attribute:: monthdelta.months
 
-   Between -99999999 and 99999999 inclusive, read-only.
+   Read-only.
 
 Supported operations:
 
-In the following, *mds* are :class:`monthdeltas <monthdelta>`, *dts* are 
-:class:`dates <~datetime.date>` or :class:`datetimes <~datetime.datetime>`,
-and *i* is an :class:`integer <int>`.
+In the following, *mds* are :class:`MonthDeltas <monthdelta>`, *dts* are 
+:class:`dates <datetime.date>` or :class:`datetimes <datetime.datetime>`,
+and *i* is an :func:`integer <int>`.
 
 +----------------------+-----------------------------------------------------+
 | Operation            | Result                                              |
@@ -107,7 +93,7 @@ and *i* is an :class:`integer <int>`.
 | ``i = md2 // md3``   | The floor is computed and the remainder (if any) is |
 |                      | thrown away. (3)                                    |
 +----------------------+-----------------------------------------------------+
-| ``+md1``             | Returns a :class:`monthdelta` object with the same  |
+| ``+md1``             | Returns a :class:`MonthDelta` object with the same  |
 |                      | value. (4)                                          |
 +----------------------+-----------------------------------------------------+
 | ``-md1``             | Equivalent to ``monthdelta(-m1.months)``, and to    |
@@ -129,7 +115,7 @@ Notes:
    >>> date(2008,1,30) + monthdelta(1)
    date(2008,2,29)
 
-   :class:`monthdelta` calculations involving the 29th, 30th, and 31st days
+   :class:`MonthDelta` calculations involving the 29th, 30th, and 31st days
    of the month are not necessarily invertible:
   
    >>> date(2008,2,29) - monthdelta(1)
@@ -146,26 +132,26 @@ Notes:
    datetime.datetime(2008, 2, 29, 12, 30, 13)
 
    Adding or subtracting a :class:`~datetime.date` object and a
-   :class:`monthdelta` object produces another :class:`~datetime.date` object.
-   Use the :func:`monthmod` function in order to produce a :class:`monthdelta`
+   :class:`MonthDelta` object produces another :class:`~datetime.date` object.
+   Use the :func:`monthmod` function in order to produce a :class:`MonthDelta`
    object from two :class:`~datetime.date` objects.
 
    Adding or subtracting a :class:`~datetime.datetime` object and a
-   :class:`monthdelta` object produces another :class:`~datetime.datetime`.
-   Use the :func:`monthmod` function in order to produce a :class:`monthdelta`
+   :class:`MonthDelta` object produces another :class:`~datetime.datetime`.
+   Use the :func:`monthmod` function in order to produce a :class:`MonthDelta`
    object from two :class:`~datetime.datetime` objects.
 (3)
    Division by 0 raises :exc:`ZeroDivisionError`.
 (4)
    Cannot overflow.
 
-Comparisons of :class:`monthdelta` objects are supported; the object with the
+Comparisons of :class:`MonthDelta` objects are supported; the object with the
 lesser :attr:`~monthdelta.months` attribute is considered the lesser
-:class:`monthdelta`.
+:class:`MonthDelta`.
 
-:class:`monthdelta` objects are :term:`hashable` and support efficient
-pickling.  In Boolean contexts, a :class:`monthdelta` object is considered to
-be :const:`True` if and only if it isn't equal to ``monthdelta(0)``.
+:class:`MonthDelta` objects are *hashable* and support efficient pickling. In
+Boolean contexts, a :class:`MonthDelta` object is considered to be
+:const:`True` if and only if it isn't equal to ``monthdelta(0)``.
 
 Example usage:
 
@@ -184,7 +170,7 @@ Example usage:
    >>> date(2008, 2, 29) + 4*year
    datetime.date(2012, 2, 29)
 
-Example of working with :class:`~datetime.date` and :class:`monthdelta`.  We
+Example of working with :class:`~datetime.date` and :class:`MonthDelta`.  We
 have a dictionary of accounts associated with sorted lists of their invoice
 dates, and we're looking for missing invoices:
 
@@ -225,15 +211,15 @@ dates, and we're looking for missing invoices:
 
    :param start: :class:`~datetime.date`
    :param end: :class:`~datetime.date`
-   :rtype: (:class:`monthdelta`, :class:`~datetime.timedelta`) tuple
+   :rtype: (:class:`MonthDelta`, :class:`~datetime.timedelta`) tuple
 
 ``start`` and ``end`` must support mutual subtraction.  For this reason,
 passing a :class:`~datetime.date` object and a :class:`~datetime.datetime`
-object together will raise a :exc:`TypeError`.  Subclasses that override
+object together will raise a :py:exc:`TypeError`.  Subclasses that override
 :func:`__sub__` could work, however.
 
 If and only if ``start`` is greater than ``end``, returned
-:class:`monthdelta` is negative.  Returned :class:`~datetime.timedelta` is
+:class:`MonthDelta` is negative.  Returned :class:`~datetime.timedelta` is
 never negative, and its :attr:`~datetime.timedelta.days` attribute is always
 less than the number of days in ``end.month``.
     
@@ -241,7 +227,7 @@ less than the number of days in ``end.month``.
    == dt + td`` is :const:`True`.
 
 :func:`monthmod` allows round-trip :class:`~datetime.date` calculations
-involving :class:`monthdelta` and :class:`~datetime.timedelta` objects:
+involving :class:`MonthDelta` and :class:`~datetime.timedelta` objects:
 
    >>> from datetime import date, monthmod
    >>> monthmod(date(2008, 1, 14), date(2009, 4, 2))

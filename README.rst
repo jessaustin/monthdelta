@@ -23,7 +23,7 @@ the `MIT license`_.
 .. |mod| replace:: **monthdelta**
 .. _mod: http://packages.python.org/MonthDelta/#module-monthdelta
 .. |MD| replace:: MonthDelta
-.. _MD: http://packages.python.org/MonthDelta#monthdelta.monthdelta
+.. _MD: http://packages.python.org/MonthDelta#monthdelta.MonthDelta
 .. _`monthmod()`: http://packages.python.org/MonthDelta#monthdelta.monthmod
 .. |DT| replace:: **datetime**
 .. _DT: http://docs3.python.org/library/datetime.html
