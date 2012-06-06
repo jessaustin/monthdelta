@@ -1,3 +1,4 @@
 ^dist\/
 ^MANIFEST$
-^MonthDelta\.egg-info
+\.egg-info$
+\.html$
