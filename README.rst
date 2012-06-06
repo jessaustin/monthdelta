@@ -16,7 +16,7 @@ valuable addition to the standard library, so this "back-ported" Python_ module
 is the way to use this functionality.
 
 Documentation_ is available, and the source_ is hosted at Bitbucket_. `Jess
-Austin`_ is the author of |MonthDelta|_ |MonthDelta|_ is distributed under
+Austin`_ is the author of |MonthDelta|_. |MonthDelta|_ is distributed under
 the `MIT license`_.
 
 .. |MonthDelta| replace:: **MonthDelta**
