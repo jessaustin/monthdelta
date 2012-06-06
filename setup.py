@@ -3,7 +3,7 @@ from setuptools import setup
 setup(name='MonthDelta',
       version='1.0a',
       description='date computations with months',
-      long_description=open('README.txt').read(),
+      long_description=open('README.rst').read(),
       author='Jess Austin',
       author_email='jess.austin@gmail.com',
       url='http://pypi.python.org/pypi/MonthDelta',

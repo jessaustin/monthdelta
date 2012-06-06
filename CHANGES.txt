@@ -1,1 +1,2 @@
-v1.0, June 2012 -- cleaned up PyPI stuff; pep8 camelcase for monthdelta class
+v1.0a, June 2012 -- cleaned up PyPI stuff; pep8 camelcase for monthdelta class;
+                    no more max/min.
