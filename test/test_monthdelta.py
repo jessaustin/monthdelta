@@ -135,9 +135,6 @@ class TestMonthDelta(unittest.TestCase):
         self.assertTrue(MonthDelta())
         self.assertTrue(MonthDelta(-1))
         self.assertTrue(not MonthDelta(0))
-    def test_class(self):
-        self.assertEqual(MonthDelta.min, MonthDelta(-99999999))
-        self.assertEqual(MonthDelta.max, MonthDelta(99999999))
     def test_subclass(self):
         class M(MonthDelta):
             def from_md(md):
@@ -190,8 +187,6 @@ class TestMonthDelta(unittest.TestCase):
         self.assertRaises(TypeError, lambda: x*a)
         self.assertRaises(TypeError, lambda: a // x)
         self.assertRaises(TypeError, lambda: x // a)
-        self.assertRaises(OverflowError, MonthDelta, -100000000)
-        self.assertRaises(OverflowError, MonthDelta, 100000000)
 
 class TestMonthMod(unittest.TestCase):
     md_zero, td_zero = MonthDelta(0), timedelta(0)

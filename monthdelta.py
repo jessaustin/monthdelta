@@ -1,4 +1,4 @@
-"""MonthDelta
+"""monthdelta
 
 Date calculation with months: MonthDelta class and monthmod() function.
 """
@@ -32,8 +32,6 @@ class MonthDelta:
     def __init__(self, months=1):
         if not isinstance(months, int):
             raise TypeError('months must be an integer')
-        if abs(months) > 99999999:
-            raise OverflowError('months must have magnitude <= 99999999')
         self.__months = months
     def months(self):
         return self.__months
@@ -135,8 +133,6 @@ class MonthDelta:
         return bool(self.__months)
     __nonzero__ = __bool__
     
-MonthDelta.min = MonthDelta(-99999999)
-MonthDelta.max = MonthDelta(99999999)
 
 def monthmod(start, end):
     """Months between dates, plus leftover time.
