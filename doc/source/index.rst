@@ -127,7 +127,6 @@ Notes:
    :attr:`~datetime.datetime.second`, :attr:`~datetime.datetime.microsecond`,
    and :attr:`~datetime.datetime.tzinfo` attributes are not changed:
 
-   >>> from datetime import datetime, monthdelta
    >>> datetime(2008, 1, 30, 12, 30, 13) + monthdelta(1)
    datetime.datetime(2008, 2, 29, 12, 30, 13)
 
@@ -155,7 +154,6 @@ Boolean contexts, a :class:`MonthDelta` object is considered to be
 
 Example usage:
 
-   >>> from datetime import date, monthdelta
    >>> date(2008, 1, 1) + monthdelta(1)
    datetime.date(2008, 2, 1)
    >>> date(2008, 1, 30) + monthdelta(1)
@@ -229,7 +227,6 @@ less than the number of days in ``end.month``.
 :func:`monthmod` allows round-trip :class:`~datetime.date` calculations
 involving :class:`MonthDelta` and :class:`~datetime.timedelta` objects:
 
-   >>> from datetime import date, monthmod
    >>> monthmod(date(2008, 1, 14), date(2009, 4, 2))
    (datetime.monthdelta(14), datetime.timedelta(19))
    >>> date(2008, 1, 14) + _[0] + _[1]
