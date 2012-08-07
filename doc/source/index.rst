@@ -64,11 +64,11 @@ and *i* is an :func:`integer <int>`.
 +======================+=====================================================+
 | ``md1 = md2 + md3``  | Sum of *md2* and *md3*. Afterwards                  |
 |                      | ``md1 - md2 == md3`` and ``md1 - md3 == md2`` are   |
-|                      | :const:`True`. (1)                                  |
+|                      | **True**. (1)                                       |
 +----------------------+-----------------------------------------------------+
 | ``md1 = md2 - md3``  | Difference of *md2* and *md3*. Afterwards           |
 |                      | ``md1 == md2 - md3`` and ``md2 == md1 + md3`` are   |
-|                      | :const:`True`. (1)                                  |
+|                      | **True**. (1)                                       |
 +----------------------+-----------------------------------------------------+
 | ``dt2 = dt1 + md``   | *dt2* has all attributes other than                 |
 |                      | :attr:`~datetime.datetime.year` and                 |
@@ -140,7 +140,7 @@ Notes:
    Use the :func:`monthmod` function in order to produce a :class:`MonthDelta`
    object from two :class:`~datetime.datetime` objects.
 (3)
-   Division by 0 raises :exc:`ZeroDivisionError`.
+   Division by 0 raises :exc:`~exceptions.ZeroDivisionError`.
 (4)
    Cannot overflow.
 
@@ -149,8 +149,8 @@ lesser :attr:`~monthdelta.months` attribute is considered the lesser
 :class:`MonthDelta`.
 
 :class:`MonthDelta` objects are *hashable* and support efficient pickling. In
-Boolean contexts, a :class:`MonthDelta` object is considered to be
-:const:`True` if and only if it isn't equal to ``monthdelta(0)``.
+Boolean contexts, a :class:`MonthDelta` object is considered to be **True** if
+and only if it isn't equal to ``monthdelta(0)``.
 
 Example usage:
 
@@ -213,8 +213,8 @@ dates, and we're looking for missing invoices:
 
 ``start`` and ``end`` must support mutual subtraction.  For this reason,
 passing a :class:`~datetime.date` object and a :class:`~datetime.datetime`
-object together will raise a :py:exc:`TypeError`.  Subclasses that override
-:func:`__sub__` could work, however.
+object together will raise a :exc:`~exceptions.TypeError`.  Subclasses that
+override :func:`~object.__sub__` could work, however.
 
 If and only if ``start`` is greater than ``end``, returned
 :class:`MonthDelta` is negative.  Returned :class:`~datetime.timedelta` is
@@ -222,7 +222,7 @@ never negative, and its :attr:`~datetime.timedelta.days` attribute is always
 less than the number of days in ``end.month``.
     
    **Invariant:** ``dt + monthmod(dt, dt+td)[0] + monthmod(dt, dt+td)[1]
-   == dt + td`` is :const:`True`.
+   == dt + td`` is **True**.
 
 :func:`monthmod` allows round-trip :class:`~datetime.date` calculations
 involving :class:`MonthDelta` and :class:`~datetime.timedelta` objects:
