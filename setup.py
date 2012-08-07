@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='MonthDelta',
-      version='1.0a',
+      version='1.0b',
       description='date computations with months',
       long_description=open('README.rst').read(),
       author='Jess Austin',
@@ -10,8 +10,7 @@ setup(name='MonthDelta',
       license='MIT',
       py_modules=['monthdelta'],
       provides=['monthdelta'],
-      test_suite='nose.collector',
-      tests_require=['Nose'],
+      test_suite='tests.test_monthdelta',
       classifiers=['Development Status :: 5 - Production/Stable',
                    'License :: OSI Approved :: MIT License',
                    'Operating System :: OS Independent',
