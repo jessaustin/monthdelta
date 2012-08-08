@@ -1,7 +1,7 @@
-from setuptools import setup
+from distutils2.core import setup
 
 setup(name='MonthDelta',
-      version='1.0b',
+      version='1.0b1',
       description='date computations with months',
       long_description=open('README.rst').read(),
       author='Jess Austin',
@@ -10,7 +10,7 @@ setup(name='MonthDelta',
       license='MIT',
       py_modules=['monthdelta'],
       provides=['monthdelta'],
-      test_suite='tests.test_monthdelta',
+      test_suite='test.test_monthdelta',
       classifiers=['Development Status :: 5 - Production/Stable',
                    'License :: OSI Approved :: MIT License',
                    'Operating System :: OS Independent',
